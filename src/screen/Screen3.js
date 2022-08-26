@@ -1,15 +1,20 @@
 import React, { useContext } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
 import { Context1 } from '../../App';
+
+
+
+
+
 function Screen3({ navigation }) {
 const context = useContext(Context1)
 return (
 <View>
-<Text>Enter your departure country</Text>
+<Text>Enter your lastName</Text>
 <TextInput
-placeholder={'Departure Country'} value={context.departureCountry}
+placeholder={'Last Name'} value={context.lastName}
 onChangeText={(depart) => {
-context.setDepartureCountry(depart)
+context.setLastName(depart)
 }} />
 <Button title={'NEXT'} onPress={() => { navigation.navigate('Screen 4') }} />
 </View>

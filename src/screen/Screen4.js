@@ -4,21 +4,22 @@ import { Context1 } from '../../App';
 function Screen4({ navigation }) {
 const context = useContext(Context1)
 const {
-fullName,
-destinationCountry,
-departureCountry,
+    firstName,
+    middleName,
+    lastName,
 } = context
 return (
 <View>
-<Text>Departure country</Text>
-<Text>{departureCountry}</Text>
-<Text>Destination country</Text>
-<Text>{destinationCountry}</Text>
-<Text>Passenger Name</Text>
-<Text>{fullName}</Text>
-<Text>Is the above info correct?</Text>
+<Text>Last country</Text>
+<Text>{lastName}</Text>
+<Text>Middle country</Text>
+<Text>{middleName}</Text>
+<Text>First Name</Text>
+<Text>{firstName
+}</Text>
+
 <Button title={'Go To Home'} onPress={() => {
-alert("Yay everything worked well!")
+alert("Go to Home Screen")
 navigation.popToTop()
 }} />
 
@@ -26,3 +27,5 @@ navigation.popToTop()
 );
 }
 export default Screen4;
+
+

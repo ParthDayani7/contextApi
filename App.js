@@ -22,7 +22,7 @@ export const Context1 = React.createContext(null);
 
 
 
-function App() {
+function App(props) {
   return (
   <NavigationContainer>
   <Tab.Navigator screenOptions={{
@@ -38,32 +38,33 @@ function App() {
 
   function Data() {
     const context1InitialState = {
-    fullName: null,
-    destinationCountry: null,
-    departureCountry: null
+    firstName: null,
+middleName: null,
+lastName: null
     };
-
-    const [passengerInfo, setPassengerInfo] = useState(context1InitialState);
-    function setFullName(fullName) {
-    const newState = { passengerInfo, fullName };
-    
-    setPassengerInfo(newState);
+    const [personInfo, setPersonInfo] = useState(context1InitialState);
+    function setFirstName(firstName
+) {
+    const newState = { ...personInfo, firstName
+ };
+    setPersonInfo(newState);
     }
-    function setDestinationCountry(destinationCountry) {
-    const newState = { passengerInfo, destinationCountry };
-    setPassengerInfo(newState);
+    function setMiddleName(middleName) {
+    const newState = { ...personInfo, middleName };
+    setPersonInfo(newState);
     }
-    function setDepartureCountry(departureCountry) {
-    const newState = { passengerInfo, departureCountry };
-    setPassengerInfo(newState);
+    function setLastName(lastName) {
+    const newState = { ...personInfo, lastName };
+    setPersonInfo(newState);
     }
     const context1Setters = {
-    setFullName,
-    setDestinationCountry,
-    setDepartureCountry
+    setFirstName,
+    setMiddleName,
+    setLastName
+    
     }
     return (
-    <Context1.Provider value={{ passengerInfo, context1Setters }}>
+    <Context1.Provider value={{ ...personInfo, ...context1Setters }}>
     <Stack.Navigator>
     <Stack.Screen name="Screen 1" component={Screen1} />
     <Stack.Screen name="Screen 2" component={Screen2} />
@@ -73,7 +74,6 @@ function App() {
     </Context1.Provider>
     )
     }
-
 
 
 const styles = StyleSheet.create({
